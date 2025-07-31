@@ -2,9 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #1976d2;
+  --color-secondary: #424242;
+  --color-accent: #ff9800;
+}
+
+.text-primary { color: var(--color-primary) !important; }
+.bg-primary { background-color: var(--color-primary) !important; }
+.text-secondary { color: var(--color-secondary) !important; }
+.bg-secondary { background-color: var(--color-secondary) !important; }
+.text-accent { color: var(--color-accent) !important; }
+.bg-accent { background-color: var(--color-accent) !important; }
+.border-primary { border-color: var(--color-primary) !important; }
+.outline-primary { outline-color: var(--color-primary) !important; }
+.bg-danger { background-color: #e53935 !important; }
+
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-white;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;

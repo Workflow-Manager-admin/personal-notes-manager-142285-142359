@@ -23,6 +23,7 @@ export const links: LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  // Setup exposing NOTES_API_BASE_URL to the browser
   return (
     <html lang="en">
       <head>
@@ -35,6 +36,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        {typeof process !== "undefined" && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.ENV = { NOTES_API_BASE_URL: "${process.env.NOTES_API_BASE_URL || ""}" }`,
+            }}
+          />
+        )}
       </body>
     </html>
   );
